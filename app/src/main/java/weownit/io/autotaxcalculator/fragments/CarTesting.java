@@ -3,6 +3,7 @@ package weownit.io.autotaxcalculator.fragments;
 import android.content.Context;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -14,24 +15,25 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import weownit.io.autotaxcalculator.analytics.AnalyticsTrackers;
-import weownit.io.autotaxcalculator.analytics.CalcVamAnalytics;
-import weownit.io.autotaxcalculator.R;
-import uk.me.lewisdeane.ldialogs.BaseDialog;
-import uk.me.lewisdeane.ldialogs.CustomListDialog;
+import clcvam.elitiv.com.calculatorvamal.R;
 
 
-public class Testare extends android.support.v4.app.Fragment implements View.OnClickListener {
+public class CarTesting extends android.support.v4.app.Fragment implements View.OnClickListener {
     Button btnCalcTaxe,btnSelectVehicle;
     TextView txtResult,txtTaxa;
     EditText insertWeight;
     int indicatorPos=-1;
     RelativeLayout testareLayout;
+
+    public static Fragment newInstance() {
+        return new CarTesting();
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View v =inflater.inflate(R.layout.fragment_testare, container, false);
+        View v =inflater.inflate(R.layout.f_car_test, container, false);
         testareLayout= (RelativeLayout) v.findViewById(R.id.testareLayout);
         testareLayout.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -64,8 +66,6 @@ public class Testare extends android.support.v4.app.Fragment implements View.OnC
         insertWeight.setText("");
         indicatorPos=-1;
         super.onResume();
-        AnalyticsTrackers.initialize(getActivity());
-        CalcVamAnalytics.getInstance().trackScreenView("Testarea Tehnica");
     }
 
     protected void hideKeyboard(View view)
@@ -74,29 +74,29 @@ public class Testare extends android.support.v4.app.Fragment implements View.OnC
         in.hideSoftInputFromWindow(view.getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
     }
     public void defineDialog(){
-        CustomListDialog.Builder builder=new CustomListDialog.Builder(getActivity(),getResources().getString(R.string.vehicleType),getResources().getStringArray(R.array.testare));
-        builder.titleAlignment(BaseDialog.Alignment.CENTER);
-        builder.itemAlignment(BaseDialog.Alignment.CENTER);
-        CustomListDialog customListDialog =builder.build();
-        customListDialog.show();
-        customListDialog.setListClickListener(new CustomListDialog.ListClickListener() {
-            @Override
-            public void onListItemSelected(int i, String[] strings, String s) {
-                if (i != 0) {
-                    insertWeight.setVisibility(View.VISIBLE);
-                    btnCalcTaxe.setVisibility(View.VISIBLE);
-                    txtResult.setText("0"+" MDL");
-                } else {
-                    insertWeight.setVisibility(View.INVISIBLE);
-                    btnCalcTaxe.setVisibility(View.INVISIBLE);
-                    txtResult.setText("50" + " MDL");
-                }
-                insertWeight.setText("");
-                indicatorPos = i;
-                btnSelectVehicle.setText(s);
-                insertWeight.setHint("Kg");
-            }
-        });
+//        CustomListDialog.Builder builder=new CustomListDialog.Builder(getActivity(),getResources().getString(R.string.vehicleType),getResources().getStringArray(R.array.testare));
+//        builder.titleAlignment(BaseDialog.Alignment.CENTER);
+//        builder.itemAlignment(BaseDialog.Alignment.CENTER);
+//        CustomListDialog customListDialog =builder.build();
+//        customListDialog.show();
+//        customListDialog.setListClickListener(new CustomListDialog.ListClickListener() {
+//            @Override
+//            public void onListItemSelected(int i, String[] strings, String s) {
+//                if (i != 0) {
+//                    insertWeight.setVisibility(View.VISIBLE);
+//                    btnCalcTaxe.setVisibility(View.VISIBLE);
+//                    txtResult.setText("0"+" MDL");
+//                } else {
+//                    insertWeight.setVisibility(View.INVISIBLE);
+//                    btnCalcTaxe.setVisibility(View.INVISIBLE);
+//                    txtResult.setText("50" + " MDL");
+//                }
+//                insertWeight.setText("");
+//                indicatorPos = i;
+//                btnSelectVehicle.setText(s);
+//                insertWeight.setHint("Kg");
+//            }
+//        });
     }
     public void setResult(int i,int editTextValue) {
         if (indicatorPos <= -1) {
@@ -142,7 +142,6 @@ public class Testare extends android.support.v4.app.Fragment implements View.OnC
                 defineDialog();
                 break;
             case R.id.btnCalcTestare:
-                CalcVamAnalytics.getInstance().trackEvent("Testarea Tehnica", "Utilizatorul a calculat Testarea Tehnica", "Taxe Drumuri");
                 try {
                     setResult(indicatorPos, Integer.valueOf(insertWeight.getText().toString()));
                 }catch (NumberFormatException e){

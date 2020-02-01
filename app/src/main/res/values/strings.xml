@@ -20,6 +20,9 @@
     <string name="locuri">Locuri</string>
 <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="cImport">Import</string>
+    <string name="cTax">Road Tax</string>
+    <string name="cTest">Test</string>
     <string-array name="taxe">
         <item>Motociclete</item>
         <item>Autoturisme</item>

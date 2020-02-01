@@ -4,6 +4,7 @@ package weownit.io.autotaxcalculator.fragments;
 import android.content.Context;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -15,28 +16,28 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-
-import weownit.io.autotaxcalculator.analytics.AnalyticsTrackers;
-import weownit.io.autotaxcalculator.analytics.CalcVamAnalytics;
-import weownit.io.autotaxcalculator.R;
-import uk.me.lewisdeane.ldialogs.BaseDialog;
-import uk.me.lewisdeane.ldialogs.CustomListDialog;
+import clcvam.elitiv.com.calculatorvamal.R;
 
 
-public class Taxe extends android.support.v4.app.Fragment implements View.OnClickListener {
+public class CarRoadTax extends Fragment implements View.OnClickListener {
 
     Button btnCalcTaxe,btnSelectVehicle;
     TextView txtResult,txtTaxa;
     EditText insertWeight;
     String indicator;
     int indicatorPos;
-    Devamare devClass;
+    CarImport devClass;
     RelativeLayout taxeLayout;
+
+    public static Fragment newInstance() {
+        return new CarRoadTax();
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View v= inflater.inflate(R.layout.fragment_taxe, container, false);
+        View v= inflater.inflate(R.layout.f_car_tax, container, false);
         taxeLayout = (RelativeLayout) v.findViewById(R.id.taxeLayout);
         taxeLayout.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -68,8 +69,7 @@ public class Taxe extends android.support.v4.app.Fragment implements View.OnClic
         insertWeight.setText("");
         indicatorPos=-1;
         super.onResume();
-        AnalyticsTrackers.initialize(getActivity());
-        CalcVamAnalytics.getInstance().trackScreenView("Taxe Drumuri");
+
     }
 
     protected void hideKeyboard(View view)
@@ -78,51 +78,51 @@ public class Taxe extends android.support.v4.app.Fragment implements View.OnClic
         in.hideSoftInputFromWindow(view.getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
     }
     public void defineDialog(){
-        CustomListDialog.Builder builder=new CustomListDialog.Builder(getActivity(),getResources().getString(R.string.vehicleType), getResources().getStringArray(R.array.taxe));
-        builder.titleAlignment(BaseDialog.Alignment.CENTER);
-        builder.itemAlignment(BaseDialog.Alignment.CENTER);
-        CustomListDialog customListDialog =builder.build();
-        customListDialog.show();
-        final String tone=getResources().getString(R.string.tonaj);
-        customListDialog.setListClickListener(new CustomListDialog.ListClickListener() {
-            @Override
-            public void onListItemSelected(int i, String[] strings, String s) {
-                insertWeight.setText("");
-                if(i!=4){
-                    insertWeight.setVisibility(View.VISIBLE);
-                    btnCalcTaxe.setVisibility(View.VISIBLE);
-                    txtResult.setText("0"+" MDL");
-                }else{
-                    insertWeight.setVisibility(View.INVISIBLE);
-                    btnCalcTaxe.setVisibility(View.INVISIBLE);
-                    txtResult.setText("2250" + " MDL");
-                }
-
-                indicatorPos=i;
-
-                btnSelectVehicle.setText(s);
-                switch (i){
-                    case 0:
-                    case 1:
-                        indicator="cm3";
-                        break;
-                    case 2:
-                    case 3:
-                        indicator=tone;
-                        break;
-                    case 4:
-
-                        break;
-                    case 5:
-                        indicator=tone;
-                        break;
-                    case 6:
-                        indicator=getResources().getString(R.string.locuri);
-                        break;
-                }
-                insertWeight.setHint(indicator);
-            }
-        });
+//        CustomListDialog.Builder builder=new CustomListDialog.Builder(getActivity(),getResources().getString(R.string.vehicleType), getResources().getStringArray(R.array.taxe));
+//        builder.titleAlignment(BaseDialog.Alignment.CENTER);
+//        builder.itemAlignment(BaseDialog.Alignment.CENTER);
+//        CustomListDialog customListDialog =builder.build();
+//        customListDialog.show();
+//        final String tone=getResources().getString(R.string.tonaj);
+//        customListDialog.setListClickListener(new CustomListDialog.ListClickListener() {
+//            @Override
+//            public void onListItemSelected(int i, String[] strings, String s) {
+//                insertWeight.setText("");
+//                if(i!=4){
+//                    insertWeight.setVisibility(View.VISIBLE);
+//                    btnCalcTaxe.setVisibility(View.VISIBLE);
+//                    txtResult.setText("0"+" MDL");
+//                }else{
+//                    insertWeight.setVisibility(View.INVISIBLE);
+//                    btnCalcTaxe.setVisibility(View.INVISIBLE);
+//                    txtResult.setText("2250" + " MDL");
+//                }
+//
+//                indicatorPos=i;
+//
+//                btnSelectVehicle.setText(s);
+//                switch (i){
+//                    case 0:
+//                    case 1:
+//                        indicator="cm3";
+//                        break;
+//                    case 2:
+//                    case 3:
+//                        indicator=tone;
+//                        break;
+//                    case 4:
+//
+//                        break;
+//                    case 5:
+//                        indicator=tone;
+//                        break;
+//                    case 6:
+//                        indicator=getResources().getString(R.string.locuri);
+//                        break;
+//                }
+//                insertWeight.setHint(indicator);
+//            }
+//        });
     }
     public void setResult(int i,int editTextValue){
         if(indicatorPos<=-1){
@@ -215,7 +215,6 @@ public class Taxe extends android.support.v4.app.Fragment implements View.OnClic
                 defineDialog();
                 break;
             case R.id.btnCalcTaxa:
-                CalcVamAnalytics.getInstance().trackEvent("Taxe Drumuri", "Utilizatorul a calculat taxa pe drumuri", "Taxe Drumuri");
                 try {
                     setResult(indicatorPos, Integer.valueOf(insertWeight.getText().toString()));
                 }catch (NumberFormatException e){

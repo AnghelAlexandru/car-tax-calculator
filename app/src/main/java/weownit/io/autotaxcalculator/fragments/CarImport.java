@@ -4,6 +4,7 @@ package weownit.io.autotaxcalculator.fragments;
 import android.content.Context;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -17,18 +18,16 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
-import weownit.io.autotaxcalculator.analytics.AnalyticsTrackers;
-import weownit.io.autotaxcalculator.analytics.CalcVamAnalytics;
-import weownit.io.autotaxcalculator.R;
-import uk.me.lewisdeane.ldialogs.BaseDialog;
-import uk.me.lewisdeane.ldialogs.CustomListDialog;
+import clcvam.elitiv.com.calculatorvamal.R;
 
 
-public class Devamare extends android.support.v4.app.Fragment implements View.OnClickListener{
-    private static Button btnClcVam,btnSelectYear;
-    private static ToggleButton btnBenzin,btnMotorina;
-    private static TextView txtVamResult,txtTaxa;
-    private static EditText editCapacity;
+public class CarImport extends android.support.v4.app.Fragment implements View.OnClickListener{
+
+    public static Fragment newInstance() {return new CarImport();}
+    private Button btnClcVam,btnSelectYear;
+    private ToggleButton btnBenzin,btnMotorina;
+    private TextView txtVamResult,txtTaxa;
+    private EditText editCapacity;
     int year=-1;
     int capacity;
     TextView testTxt;
@@ -39,7 +38,7 @@ public class Devamare extends android.support.v4.app.Fragment implements View.On
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View v=inflater.inflate(R.layout.fragment_devamare, container, false);
+        View v=inflater.inflate(R.layout.f_car_import, container, false);
 
         devLayout= (RelativeLayout) v.findViewById(R.id.devLayout);
         devLayout.setOnTouchListener(new View.OnTouchListener() {
@@ -100,7 +99,6 @@ public class Devamare extends android.support.v4.app.Fragment implements View.On
                 btnMotorina.setTextColor(getResources().getColor(R.color.darkBlue));
                 btnBenzin.setTextColor(getResources().getColor(R.color.whiteBlue));
                 btnBenzin.setChecked(true);
-                CalcVamAnalytics.getInstance().trackEvent("Devamare", "Utilizatorul a ales Benzina", "Benzina");
                 break;
             case R.id.btnDiesel:
                 Log.d("Decision", " Diesel");
@@ -108,11 +106,9 @@ public class Devamare extends android.support.v4.app.Fragment implements View.On
                 btnBenzin.setTextColor(getResources().getColor(R.color.darkBlue));
                 btnMotorina.setTextColor(getResources().getColor(R.color.whiteBlue));
                 btnMotorina.setChecked(true);
-                CalcVamAnalytics.getInstance().trackEvent("Devamare", "Utilizatorul a ales Motorina", "Motorina");
                 break;
             case R.id.btnCalcVam:
                 txtVamResult.setText(doDevamare());
-                CalcVamAnalytics.getInstance().trackEvent("Devamare","Calculul Devamarii Auto","Calculul sumei");
                 break;
             case R.id.btnSelectYear:
                 defineDialog();
@@ -128,8 +124,6 @@ public class Devamare extends android.support.v4.app.Fragment implements View.On
         btnMotorina.setTextColor(getResources().getColor(R.color.darkBlue));
         btnBenzin.setTextColor(getResources().getColor(R.color.whiteBlue));
         btnBenzin.setChecked(true);
-        AnalyticsTrackers.initialize(getActivity());
-        CalcVamAnalytics.getInstance().trackScreenView("Devamarea Autovehiculelor");
         super.onResume();
     }
 
@@ -156,19 +150,19 @@ public class Devamare extends android.support.v4.app.Fragment implements View.On
     }
     //Seekbar
     public void defineDialog(){
-        CustomListDialog.Builder builder=new CustomListDialog.Builder(getActivity(),getResources().getString(R.string.devYear),adj);
-        builder.titleAlignment(BaseDialog.Alignment.CENTER);
-        builder.itemAlignment(BaseDialog.Alignment.CENTER);
-        CustomListDialog customListDialog =builder.build();
-        customListDialog.show();
-        customListDialog.setListClickListener(new CustomListDialog.ListClickListener() {
-            @Override
-            public void onListItemSelected(int i, String[] strings, String s) {
-                    year=i;
-                    btnSelectYear.setText(s);
-                    txtVamResult.setText("0.0"+" "+"\u20ac");
-            }
-        });
+//        CustomListDialog.Builder builder=new CustomListDialog.Builder(getActivity(),getResources().getString(R.string.devYear),adj);
+//        builder.titleAlignment(BaseDialog.Alignment.CENTER);
+//        builder.itemAlignment(BaseDialog.Alignment.CENTER);
+//        CustomListDialog customListDialog =builder.build();
+//        customListDialog.show();
+//        customListDialog.setListClickListener(new CustomListDialog.ListClickListener() {
+//            @Override
+//            public void onListItemSelected(int i, String[] strings, String s) {
+//                    year=i;
+//                    btnSelectYear.setText(s);
+//                    txtVamResult.setText("0.0"+" "+"\u20ac");
+//            }
+//        });
 
     }
     //Main Calc Function
