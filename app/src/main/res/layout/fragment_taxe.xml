@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#ecf0f1"
-    tools:context="clcvam.elitiv.com.calculatorvamal.fragments.Taxe"
+    tools:context="weownit.io.autotaxcalculator.fragments.Taxe"
     android:id="@+id/taxeLayout"
     >
 

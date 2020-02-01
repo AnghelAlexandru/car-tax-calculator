@@ -1,4 +1,4 @@
-package clcvam.elitiv.com.calculatorvamal;
+package weownit.io.autotaxcalculator;
 
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -6,10 +6,9 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTabHost;
 import android.widget.TextView;
 
-import clcvam.elitiv.calculatorvamal.analytics.AnalyticsTrackers;
-import clcvam.elitiv.com.calculatorvamal.fragments.Devamare;
-import clcvam.elitiv.com.calculatorvamal.fragments.Taxe;
-import clcvam.elitiv.com.calculatorvamal.fragments.Testare;
+import weownit.io.autotaxcalculator.fragments.Devamare;
+import weownit.io.autotaxcalculator.fragments.Taxe;
+import weownit.io.autotaxcalculator.fragments.Testare;
 
 
 public class MainActivity extends FragmentActivity  {

@@ -1,4 +1,4 @@
-package clcvam.elitiv.com.calculatorvamal.fragments;
+package weownit.io.autotaxcalculator.fragments;
 
 
 import android.content.Context;
@@ -13,14 +13,13 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
-import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
-import clcvam.elitiv.calculatorvamal.analytics.AnalyticsTrackers;
-import clcvam.elitiv.calculatorvamal.analytics.CalcVamAnalytics;
-import clcvam.elitiv.com.calculatorvamal.R;
+import weownit.io.autotaxcalculator.analytics.AnalyticsTrackers;
+import weownit.io.autotaxcalculator.analytics.CalcVamAnalytics;
+import weownit.io.autotaxcalculator.R;
 import uk.me.lewisdeane.ldialogs.BaseDialog;
 import uk.me.lewisdeane.ldialogs.CustomListDialog;
 
