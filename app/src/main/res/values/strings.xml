@@ -1,0 +1,39 @@
+<resources>
+    <string name="app_name">Calculator Vamal</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    //Button Strings
+
+    <string name="tabDev">Vămuire</string>
+    <string name="tabTaxe">T Drumuri</string>
+    <string name="tabTest">R Tehnică</string>
+    <string name="btnBenzin">Benzină</string>
+    <string name="btnMotorina">Motorină</string>
+    <string name="btnCalcVam">Calculează</string>
+    <string name="taxa">Taxa</string>
+    <string name="devYear">Anul Autovehiculului</string>
+    <string name="vehicleType">Tipul Autovehiculului</string>
+    <string name="devToast">Introdu Capacitatea / Selectează Anul Autovehiculului</string>
+    <string name="otherToast">Selectează Tipul Autovehiculului</string>
+    <string name="tonaj">Tone</string>
+    <string name="locuri">Locuri</string>
+<!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string-array name="taxe">
+        <item>Motociclete</item>
+        <item>Autoturisme</item>
+        <item>Remorci</item>
+        <item>Semiremorci</item>
+        <item>Autoremorchere,Tractoare</item>
+        <item>Autocamioane</item>
+        <item>Autobuze</item>
+    </string-array>
+    <string-array name="testare">
+        <item>Motociclete</item>
+        <item>Remorci</item>
+        <item>Autoturisme</item>
+    </string-array>
+    <color name="darkBlue">#006170</color>
+    <color name="whiteBlue">#ffffff</color>
+</resources>

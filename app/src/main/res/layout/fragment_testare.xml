@@ -1,0 +1,72 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ecf0f1"
+    tools:context="clcvam.elitiv.com.calculatorvamal.fragments.Testare"
+    android:id="@+id/testareLayout"
+    >
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/vehicleType"
+        android:id="@+id/btnSelectTestare"
+        android:background="@drawable/simple_btn_pressed"
+        android:textColor="@color/darkBlue"
+        android:paddingRight="30dp"
+        android:paddingLeft="30dp"
+        android:layout_marginTop="52dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="numberSigned"
+        android:ems="15"
+        android:maxLength="5"
+        android:gravity="center_horizontal"
+        android:id="@+id/inserValueTestare"
+        android:layout_below="@+id/btnSelectTestare"
+        android:layout_marginTop="42dp"
+        android:layout_alignLeft="@+id/btnSelectTestare"
+        android:layout_alignStart="@+id/btnSelectTestare"
+        android:layout_alignRight="@+id/btnSelectTestare"
+        android:layout_alignEnd="@+id/btnSelectTestare" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btnCalcVam"
+        android:id="@+id/btnCalcTestare"
+        android:background="@drawable/simple_btn_pressed"
+        android:textColor="@color/darkBlue"
+        android:paddingRight="30dp"
+        android:paddingLeft="30dp"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/taxa"
+        android:textSize="20sp"
+        android:textColor="@color/darkBlue"
+        android:id="@+id/textView3"
+        android:layout_below="@+id/btnCalcTestare"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:id="@+id/txtResultTestare"
+        android:textSize="35sp"
+        android:text="0 MDL"
+        android:textColor="@color/darkBlue"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/textView3"
+        android:layout_centerHorizontal="true" />
+
+</RelativeLayout>

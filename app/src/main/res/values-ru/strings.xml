@@ -1,0 +1,39 @@
+<resources>
+    <string name="app_name">Calculator Vamal</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    //Button Strings
+
+    <string name="tabDev">Растаможка</string>
+    <string name="tabTaxe">Д Налог</string>
+    <string name="tabTest">Т Ревизия</string>
+    <string name="btnBenzin">Бензин</string>
+    <string name="btnMotorina">Дизель</string>
+    <string name="btnCalcVam">Подсчитать</string>
+    <string name="taxa">Налог</string>
+    <string name="devYear">Год Выпуска</string>
+    <string name="vehicleType">Тип Транспортного Средства</string>
+    <string name="devToast">Введите Мощность / Выберите Год Выпуска</string>
+    <string name="otherToast">Тип Транспортного Средства</string>
+    <string name="tonaj">Тон</string>
+    <string name="locuri">Мест</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string-array name="taxe">
+        <item>Мотоциклы</item>
+        <item>Автомобили</item>
+        <item>Прицепы</item>
+        <item>Трейлерa</item>
+        <item>Тракторы</item>
+        <item>Грузовые автомобили</item>
+        <item>Автобус</item>
+    </string-array>
+    <string-array name="testare">
+        <item>Мотоциклы</item>
+        <item>Прицепы</item>
+        <item>Автомобили</item>
+    </string-array>
+    <color name="darkBlue">#006170</color>
+    <color name="whiteBlue">#ffffff</color>
+</resources>
